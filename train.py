@@ -193,11 +193,15 @@ def denoise_image(cfg, img_path, out_path="denoised.png"):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--denoise", type=str, default=None, help="path to a noisy image")
-    ap.add_argument("--out", type=str, default="denoised.png")
+    ap.add_argument("--denoise-video", type=str, default=None, help="path to a noisy video")
+    ap.add_argument("--out", type=str, default=None, help="output path")
     args = ap.parse_args()
 
     cfg = Config()
-    if args.denoise:
-        denoise_image(cfg, args.denoise, args.out)
+    if args.denoise_video:
+        import video
+        video.denoise_video(cfg, args.denoise_video, args.out or "denoised.mp4")
+    elif args.denoise:
+        denoise_image(cfg, args.denoise, args.out or "denoised.png")
     else:
         train(cfg)

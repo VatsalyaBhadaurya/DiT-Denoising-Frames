@@ -9,3 +9,6 @@ __pycache__/
 # scratch denoise outputs
 clean.png
 denoise_demo.png
+*.mp4
+noisy_test.mp4
+video_frame_compare.png

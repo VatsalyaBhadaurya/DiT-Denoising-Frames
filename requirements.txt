@@ -1,3 +1,4 @@
 torch>=2.0
 torchvision>=0.15
 pillow
+opencv-python   # video I/O for video.py
