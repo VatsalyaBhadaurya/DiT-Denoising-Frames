@@ -1,0 +1,46 @@
+You are an expert PyTorch research engineer.
+
+Your task is to write a complete, runnable, and well-structured Python implementation of a Diffusion Transformer (DiT) for image denoising.
+
+Project goal:
+- Build a DiT-style denoising model in Python using PyTorch.
+- The model must support supervised image denoising from noisy image to clean image.
+- Use diffusion training logic with timestep conditioning.
+- The implementation should be practical, minimal, readable, and modular.
+- Prefer correctness and clarity over excessive abstraction.
+
+Technical requirements:
+1. Use Python 3 and PyTorch.
+2. Organize the code into logical modules or one clean script with clearly separated sections:
+   - imports
+   - config
+   - dataset
+   - noise scheduler / diffusion utilities
+   - timestep embedding
+   - patch embedding
+   - transformer block
+   - DiT model
+   - training loop
+   - validation loop
+   - inference / denoise function
+   - checkpoint save/load
+3. The model should:
+   - take an image tensor x_t and timestep t as input
+   - use patch embedding like ViT / DiT
+   - use sinusoidal or learned timestep embeddings
+   - use transformer blocks with LayerNorm, multi-head self-attention, and MLP
+   - reconstruct either predicted noise epsilon or clean image x0
+4. Include a diffusion forward noising process and training target.
+5. Use a beta schedule and standard DDPM-style utilities.
+6. Support grayscale and RGB images.
+7. Make image size and patch size configurable.
+8. Include mixed precision training if available.
+9. Include gradient clipping and learning rate scheduler.
+10. Include example hyperparameters suitable for a small experiment on a custom dataset.
+
+Denoising task requirements:
+- Assume paired training data:
+  - noisy images
+  - clean target images
+- Also support synthetic corruption by adding Gaussian noise to clean images if paired noisy inputs are unavailable.
+- Provide a dataset class 

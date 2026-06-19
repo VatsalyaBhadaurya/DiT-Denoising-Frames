@@ -1,0 +1,11 @@
+# models / checkpoints (large binaries)
+checkpoints/
+*.pt
+
+# python
+__pycache__/
+*.pyc
+
+# scratch denoise outputs
+clean.png
+denoise_demo.png
